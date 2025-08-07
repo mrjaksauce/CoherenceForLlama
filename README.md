@@ -15,7 +15,7 @@ To keep the overhead zero in normal use, the coherence tracing instrumentation i
 cmake . -DLLAMA_COHERENCE_TRACE=ON
 make
 `
-By default (flag off), none of the coherence-tracing code is included or executed, ensuring no performance impact or memory overhead on standard runs. When compiled with -`DLLAMA_COHERENCE_TRACE`, the llama.cpp binary will support additional options to configure and collect phase coherence data. This design is upstream-friendly – when the flag is disabled, the code is essentially a no-op (compiling to nothing) so it won’t affect existing functionality or speed. All tracing hooks are guarded with `#ifdef LLAMA_COHERENCE_TRACE` so they vanish completely in a normal build. Developers can thus merge this feature without worrying about regressions in core inference performance.
+By default (flag off), none of the coherence-tracing code is included or executed, ensuring no performance impact or memory overhead on standard runs. When compiled with `-DLLAMA_COHERENCE_TRACE`, the llama.cpp binary will support additional options to configure and collect phase coherence data. This design is upstream-friendly – when the flag is disabled, the code is essentially a no-op (compiling to nothing) so it won’t affect existing functionality or speed. All tracing hooks are guarded with `#ifdef LLAMA_COHERENCE_TRACE` so they vanish completely in a normal build. Developers can thus merge this feature without worrying about regressions in core inference performance.
 
 # Runtime Configuration (coh_trace_cfg)
 
